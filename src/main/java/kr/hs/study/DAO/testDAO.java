@@ -14,8 +14,24 @@ public class testDAO {
 
     // insert(저장)
     public void insert(testDTO dto) {
-        String sql = "insert into test values(?, ?);";
+        String sql = "insert into test values(?, ?)";
         jdbc.update(sql, dto.getData1(), dto.getData2());
     }
 
+    // update(수정)
+    public void update(testDTO dto) {
+        String sql = "update test set data1=?, data2=?";
+        jdbc.update(sql, dto.getData1(), dto.getData2());
+    }
+
+    // delete(삭제)
+    public void delete(testDTO dto) {
+        String sql = "delete from test where data1=?";
+        jdbc.update(sql, dto.getData1());
+    }
+
+    // select(출력)
+    public void select(testDTO dto) {
+
+    }
 }

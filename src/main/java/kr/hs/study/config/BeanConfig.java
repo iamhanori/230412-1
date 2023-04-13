@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 @Configuration // beand 만들어달라고 하는 설정파일
-@ComponentScan(basePackages = {"kr.hs.study.beans","kr.hs.study.db"}) // 패키지 아래 @Component 설정 시 bean으로 만들어주겠다
+@ComponentScan(basePackages = {"kr.hs.study.beans","kr.hs.study.dao"}) // 패키지 아래 @Component 설정 시 bean으로 만들어주겠다
 public class BeanConfig {
 
 
