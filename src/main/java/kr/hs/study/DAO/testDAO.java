@@ -5,12 +5,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class testDAO {
     // 실제 DB 접속하여 query 날림
     // query 날리는 예 :JDBCTemplate class야
     @Autowired
     JdbcTemplate jdbc;
+
+    @Autowired
+    Mapper mapper;
+    // Mapper mapper = new Mapper();
 
     // insert(저장)
     public void insert(testDTO dto) {
@@ -30,8 +36,10 @@ public class testDAO {
         jdbc.update(sql, dto.getData1());
     }
 
-    // select(출력)
-    public void select(testDTO dto) {
-
+    // list
+    public List<testDTO> select() {
+        String sql = "select *from test";
+        List<testDTO> list = jdbc.query(sql, mapper);
+        return list;
     }
 }
